@@ -18,9 +18,10 @@ linkmap(hyper,chr=c(1,2,3))
 linkmap(hyper,chr=c(1,2,3,4))
 dev.off()
 ```
-![map](https://github.com/pinbo/RgeneticMap/blob/master/gmap.svg)
+![map](https://github.com/pinbo/RgeneticMap/blob/master/GeneticMap.png)
+![svgmap](https://github.com/pinbo/RgeneticMap/raw/master/gmap.svg)
 
-# Parameterk
+# Parameters
 **linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){...}**
 
 Input of this function:
