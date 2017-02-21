@@ -21,8 +21,6 @@ dev.off()
 **PNG format output**
 ![map](https://github.com/pinbo/RgeneticMap/blob/master/GeneticMap.png)
 
-**SVG format output**
-<img src="https://github.com/pinbo/RgeneticMap/blob/master/gmap.svg" width="100%" >
 # Parameters
 **linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){...}**
 
