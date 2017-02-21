@@ -18,9 +18,11 @@ linkmap(hyper,chr=c(1,2,3))
 linkmap(hyper,chr=c(1,2,3,4))
 dev.off()
 ```
+**PNG format output**
 ![map](https://github.com/pinbo/RgeneticMap/blob/master/GeneticMap.png)
-![svgmap](https://github.com/pinbo/RgeneticMap/raw/master/gmap.svg)
 
+**SVG format output**
+<img src="https://github.com/pinbo/RgeneticMap/blob/master/gmap.svg" width="100%" >
 # Parameters
 **linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){...}**
 
