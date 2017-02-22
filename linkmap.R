@@ -27,7 +27,7 @@ linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){
       dots$cex <- NULL
   #    else cex <- par("cex")
   chrpos <- seq(1, n.chr * chr.space, by = chr.space)
-  thelim <- range(chrpos) + c(-1.6, 1.35)
+  thelim <- range(chrpos) + c(-1.3, 1.3)
 
   for(i in 1:n.chr){
       mt[[i]] <- map[[i]]
@@ -67,18 +67,18 @@ linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){
     map[[i]] <- omap[[i]]
     barl <- chrpos[i] - 0.07
     barr <- chrpos[i] + 0.07
-    segments(barl, min(map[[i]]), barl, max(map[[i]]), lwd = 2)
-    segments(barr, min(map[[i]]), barr, max(map[[i]]), lwd = 2)
+    segments(barl, min(map[[i]]), barl, max(map[[i]]), lwd = 3)
+    segments(barr, min(map[[i]]), barr, max(map[[i]]), lwd = 3)
     segments(barl - 0.13, map[[i]], barr + 0.13, map[[i]]) #0.2 from chrpos on each side
     # attempt to put curves at ends of chromosomes
-    rs <- seq(0,pi,len=20)
+    rs <- seq(0,pi,len=100)
 	r <- (barr - barl)/2 # radius
 	xunit = par("pin")[1]/abs(par("xaxp")[2] - par("xaxp")[1])
 	yunit = par("pin")[2]/abs(par("yaxp")[2] - par("yaxp")[1])
     xseq <- r*cos(rs) 
     yseq <- r*sin(rs)*(xunit/yunit)
-    lines(xseq + chrpos[i], min(map[[i]]) - yseq, lwd=2)
-    lines(xseq + chrpos[i], max(map[[i]]) + yseq, lwd=2)
+    lines(xseq + chrpos[i], min(map[[i]]) - yseq, lwd=3)
+    lines(xseq + chrpos[i], max(map[[i]]) + yseq, lwd=3)
   }
   axis(side = 1, at = chrpos, labels = names(map), tick = F)
   if(is.na(pmatch("main", names(dots))) & !as.logical(sys.parent()))
