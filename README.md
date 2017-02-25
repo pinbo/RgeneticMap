@@ -22,7 +22,7 @@ dev.off()
 ![map](https://github.com/pinbo/RgeneticMap/blob/master/GeneticMap.png)
 
 # Parameters
-**linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, ...){...}**
+**linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, ...){...}**
 
 Input of this function:
 - **object**:
@@ -32,6 +32,7 @@ Input of this function:
 - **chr**: a vector of chromosome names that need to be drawn.
 - **chr.space**: space between each chromosomes
 - **m.cex**: font size
+- **interval**: NULL/TRUE/FALSE: plot no distance/marker interval/absolute distance. Default is absolute distance.
 - **...**: other plot parameters
 
 # Credits
