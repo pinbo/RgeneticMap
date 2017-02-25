@@ -1,5 +1,11 @@
-linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = NULL, ...){
-  # map should be a list, the same format as  map <- pull.map(object)
+linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, ...){
+  # VERSION: 1.0.1
+  # object: a "cross" object from R/qtl, or a "map" class from the output of "pull.map" in R/qtl, or a data frame with marker column, chromosme column and position column named as "mar", "chr" and "pos", respectively
+  # chr: a vector of chromosome names that need to be drawn.
+  # chr.space: space between each chromosomes
+  # m.cex: font size
+  # interval: NULL/TRUE/FALSE: plot no distance/marker interval/absolute distance. Default is absolute distance.
+  # ...: other plot parameters
   if ("data.frame" %in% class(object)){ # transform to a list
 	  pos = object$pos
 	  names(pos) = object$mar
@@ -18,7 +24,7 @@ linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = NULL, ..
     map <- map[chr]
   }
   n.chr <- length(map)
-  mt <- list()
+  #mt <- list()
 
   maxlen <- max(unlist(lapply(map, max)))
   minlen <- min(unlist(lapply(map, min)))
