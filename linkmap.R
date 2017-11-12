@@ -39,11 +39,12 @@ linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, .
   finalPos = function(pos, maxlen) {#pos is a vector of positions of A genetic map
       posnew = pos
       if (length(posnew) > 1){
-          conv <- par("pin")[2]/maxlen
+          conv <- par("pin")[2]/maxlen # pin is The current plot dimensions, (width, height), in inches.
           for(j in 1:(length(pos) - 1)){
-              ch <- posnew[j + 1]*conv - (posnew[j]*conv + 10*par("csi")*m.cex/9)
-              if(ch < 0){
-                  temp <- posnew[j + 1]*conv + abs(ch)
+              ch <- posnew[j + 1]*conv - (posnew[j]*conv + 10*par("csi")*m.cex/9) # csi is the default font height
+              #cat(ch)
+              if (ch < 0){
+                  temp <- posnew[j]*conv + 10*par("csi")*m.cex/9
                   posnew[j + 1] <- temp/conv
               }
           }
@@ -61,12 +62,13 @@ linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, .
   }
   
   # plot left side
-  mt = lapply(map, finalPos, maxlen=maxlen) # final label postion on the right
+  total_len = maxlen - minlen # in case chromosome did not start from 0
+  mt = lapply(map, finalPos, maxlen= total_len) # final label postion on the right
   if (!is.null(interval)) {
       if (interval) {
           map2 = lapply(map, function(x) getInterval(x)[[1]]) # chromsome position for the left
           map3 = lapply(map, function(x) getInterval(x)[[2]]) # intervals
-          mt2 = lapply(map2, finalPos, maxlen=maxlen) # distance plotting position on the left
+          mt2 = lapply(map2, finalPos, maxlen=total_len) # distance plotting position on the left
       } else {
           map2 = map # left and right are the same
           map3 = map

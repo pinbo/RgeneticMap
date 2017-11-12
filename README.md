@@ -17,22 +17,27 @@ linkmap(hyper,chr=c(1,2))
 linkmap(hyper,chr=c(1,2,3))
 linkmap(hyper,chr=c(1,2,3,4))
 dev.off()
+
+svg(file="GeneticMap.svg", width=7, height=7, bg=NA)
+linkmap(hyper,chr=c(1,2,3), ruler = T, m.cex = 0.8)
+dev.off()
 ```
 **PNG format output**
-![map](https://github.com/pinbo/RgeneticMap/blob/master/GeneticMap.png)
+![map](GeneticMap.svg)
 
 # Parameters
-**linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, ...){...}**
+**linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, ruler = FALSE, ...){...}**
 
 Input of this function:
 - **object**:
   + a "cross" object from R/qtl
   + a "map" class from the output of "pull.map" in R/qtl
-  + a data frame with marker column, chromosme column and position column named as "mar", "chr" and "pos", respectively
+  + a data frame with marker column, chromosme column and position column named as "**mar**", "**chr**" and "**pos**", respectively
 - **chr**: a vector of chromosome names that need to be drawn.
 - **chr.space**: space between each chromosomes
 - **m.cex**: font size
 - **interval**: NULL/TRUE/FALSE: plot no distance/marker interval/absolute distance. Default is absolute distance.
+- **ruler**: whether to draw ruler on the left
 - **...**: other plot parameters
 
 # Credits
