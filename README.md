@@ -22,7 +22,7 @@ svg(file="GeneticMap.svg", width=7, height=7, bg=NA)
 linkmap(hyper,chr=c(1,2,3), ruler = T, m.cex = 0.8)
 dev.off()
 ```
-**PNG format output**
+# SVG format output example
 ![map](GeneticMap.svg)
 
 # Parameters
