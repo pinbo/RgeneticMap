@@ -18,12 +18,24 @@ linkmap(hyper,chr=c(1,2,3))
 linkmap(hyper,chr=c(1,2,3,4))
 dev.off()
 
+# Absolute positions
 svg(file="GeneticMap.svg", width=7, height=7, bg=NA)
 linkmap(hyper,chr=c(1,2,3), ruler = T, m.cex = 0.8)
 dev.off()
+
+# Relative positions
+svg(file="GeneticMap-interval.svg", width=7, height=7, bg=NA)
+linkmap(hyper,chr=c(1,2,3), ruler = T, m.cex = 0.8, interval=T)
+dev.off()
 ```
 # SVG format output example
+
+### Absolute positions
 ![map](GeneticMap.svg)
+
+
+### Relative positions
+![map2](GeneticMap-interval.svg)
 
 # Parameters
 **linkmap <- function(object, chr, chr.space = 2, m.cex = 0.6, interval = FALSE, ruler = FALSE, ...){...}**
